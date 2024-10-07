@@ -1,0 +1,480 @@
+@font-face {
+  font-family: 'TTI';
+  src: url('./assets/font/TTInterfaces-Regular.ttf');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: 'TTI Medium';
+  src: url('./assets/font/TTInterfaces-Medium.ttf');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'TTI Semibold';
+  src: url('./assets/font/TTInterfaces-SemiBold.ttf');
+  font-weight: 500;
+}
+:root {
+  --white: #fdfdfd;
+  --black: #000;
+  --light-gray: #cccccc;
+  --gray: #575757;
+  --shadow-us: 5px 5px 20px rgba(0, 0, 0, 0.15);
+  --shadow-us-hover: 5px 5px 25px rgba(0, 0, 0, 0.25);
+  --gradient: linear-gradient(110deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+}
+p, a, span {
+  transition: 200ms;
+}
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hidden {
+	opacity: 0 !important;
+	transition: opacity 0.4s ease-out !important; 
+}
+
+button,
+input,
+a,
+p,
+h1 {
+  font-family: 'TTI';
+}
+
+button,
+input {
+  box-shadow: var(--shadow-us);
+  transition: ease-in 200ms;
+}
+button:hover,
+input:hover {
+  box-shadow: var(--shadow-us-hover);
+}
+
+button {
+  background-color: white;
+  border: none;
+  padding: 1.3rem 0;
+  font-size: 1.6rem;
+  border-radius: 5rem;
+  width: 100%;
+  color: var(--light-gray);
+}
+
+html {
+  font-size: 62.5%;
+}
+
+@media (min-width: 1300px) {
+  html {
+    font-size: 80%;
+  }
+}
+@media (max-width: 1100px) {
+  html {
+    font-size: 55%;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+body {
+  font-family: 'TTI';
+  background-color: var(--white);
+  margin: 0;
+  padding: 3rem;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html > body > header {
+  padding-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+html > body > header > nav {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+button.active {
+  background-color: #fff;
+  box-shadow: var(--shadow-us-hover);
+  /* border: 1px solid var(--gray); */
+  color: var(--gray);
+}
+
+html > body > header > form {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+html > body > header > form > button {
+  width: 30%;
+  color: var(--gray);
+}
+
+html > body > header > form > input {
+  font-size: 1.6rem;
+  padding: 1.3rem 6rem;
+  border-radius: 5rem;
+  background-color: #fff !important;
+  border: 0;
+  position: relative;
+  width: 100%;
+  background: url('assets/icons/search.svg') no-repeat 2.5rem;
+  background-size: 20px;
+  z-index: 10;
+}
+
+html > body > header > form > input::placeholder {
+  font-size: 1.6rem;
+  color: var(--light-gray);
+}
+
+html > body > main > section.today-weather {
+  display: grid;
+  grid-template-columns: 4fr 6fr;
+  gap: 3rem;
+  width: 100%;
+  height: 80vh;
+}
+
+html > body > main > section.today-weather > .weather-info {
+  /* background: linear-gradient(110deg, #3e8ff5 10%, #f849ec 100%); */
+  background: var(--gradient);
+  padding: 7rem 5rem;
+  border-radius: 8rem;
+  color: white;
+  display: flex;
+  background-size: 300% 300%;
+  animation: gradient 15s ease infinite;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+html > body > main > section.today-weather > .weather-info::after,
+html > body > main > .today-weather > ul > li.cloud::after {
+  content: '';
+  position: absolute;
+  top: 8px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  border-radius: 8rem;
+
+  background: var(--gradient);
+  background-size: 300% 300%;
+  animation: gradient 15s ease infinite;
+
+  filter: blur(20px);
+  opacity: 0.8;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+html > body > main > section.today-weather > .weather-info::before,
+html > body > main > .today-weather > ul > li.cloud::before {
+  background-image: url('https://www.transparenttextures.com/patterns/otis-redding.png');
+  position: absolute;
+  inset: 0;
+  border-radius: 8rem;
+  z-index: 0;
+  content: '';
+}
+
+html > body > main > .today-weather > .weather-info > .temperature {
+  font-size: 19rem;
+  margin-top: -3.7rem;
+  align-self: flex-end;
+  z-index: 1;
+  background: linear-gradient(130deg, white 30%, transparent 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html > body > main > .today-weather > .weather-info > .date {
+  font-size: 1.8rem;
+  font-family: 'TTI Medium';
+  opacity: 0.8;
+  background: linear-gradient(140deg, white 10%, transparent 140%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+html > body > main > .today-weather > .weather-info > .location > p {
+  font-family: 'TTI Semibold';
+  font-size: 2.8rem;
+  background: linear-gradient(140deg, white, transparent 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  max-width: 80%;
+}
+
+html > body > main > .today-weather > .weather-info > .location > p.country {
+  font-family: 'TTI Medium';
+}
+
+html > body > main > .today-weather > .weather-info > .temperature-range {
+  font-size: 2rem;
+  opacity: 0.8;
+  margin-bottom: 2rem;
+}
+
+/* html
+  > body
+  > main
+  > .today-weather
+  > .weather-info
+  > .temperature-range
+  > span:first-child {
+  margin-right: 1rem;
+} */
+
+html > body > main > .today-weather > ul {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 2rem;
+}
+
+html > body > main > .today-weather > ul > li,
+html > body > main > .today-weather > ul > a {
+  background-color: white;
+  border-radius: 2.7rem;
+  padding: 2.8rem;
+  box-shadow: var(--shadow-us);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+html > body > main > .today-weather > ul > a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: ease-in 200ms;
+}
+
+html > body > main > .today-weather > ul > a > .arrow {
+  align-self: flex-end;
+  height: 5rem;
+  width: 5rem;
+}
+
+html > body > main > .today-weather > ul > a:hover {
+  box-shadow: var(--shadow-us-hover);
+}
+
+html > body > main > .today-weather > ul > a:hover svg {
+  margin-left: 5px;
+  margin-top: -5px;
+}
+
+html > body > main > .today-weather > ul > a svg {
+  transition: margin 0.3s ease; /* Задаем плавный переход при наведении */
+}
+
+html > body > main > .today-weather > ul > li > p,
+html > body > main > .today-weather > ul > a > p {
+  font-size: 1.7rem;
+  color: var(--light-gray);
+}
+
+html > body > main > .today-weather > ul > li > p.big {
+  color: var(--black);
+  font-size: 4.5rem;
+}
+
+html > body > main > .today-weather > ul > li.cloud {
+  background: linear-gradient(110deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 300% 300%;
+  animation: gradient 15s ease infinite;
+  color: white;
+  grid-column: span 2;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0;
+}
+
+html > body > main > .today-weather > ul > li.cloud > .svg-cont {
+  margin-right: 6rem;
+  width: 9rem;
+  height: 9rem;
+}
+
+html > body > main > .today-weather > ul > li.cloud > .svg-cont > img {
+  width: 100%;
+  height: 100%;
+}
+
+html > body > main > .today-weather > ul > li.cloud > .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+html > body > main > .today-weather > ul > li.cloud > .info > p {
+  background: linear-gradient(140deg, white, transparent 150%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 2.5rem;
+  font-family: 'TTI Medium';
+  padding-top: 3rem;
+  padding-left: 3rem;
+}
+
+html > body > main > .today-weather > ul > li.cloud > .info > .feels-like > p {
+  font-size: 1.8rem;
+  background: linear-gradient(
+    170deg,
+    rgba(255, 255, 255, 0.85),
+    transparent 150%
+  );
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: 'TTI';
+  padding-left: 3rem;
+}
+
+html
+  > body
+  > main
+  > .today-weather
+  > ul
+  > li.cloud
+  > .info
+  > .feels-like
+  > p.breeze {
+  padding-bottom: 3rem;
+}
+html
+  > body
+  > main
+  > .today-weather
+  > ul
+  > li.cloud
+  > .info
+  > .feels-like
+  > .feels
+  > span {
+  background: linear-gradient(140deg, white 30%, transparent 100%);
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+@media (max-width: 1100px) {
+  :root {
+    --white: #fdfdfd;
+    --black: #000;
+    --light-gray: #cccccc;
+    --gray: #575757;
+    --shadow-us: 5px 5px 10px rgba(0, 0, 0, 0.1);
+    --shadow-us-hover: 5px 5px 15px rgba(0, 0, 0, 0.2);
+    --gradient: linear-gradient(110deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  }
+
+  html > body > header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding-bottom: 2rem;
+  }
+
+  html > body > header > nav > button {
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  html > body > header > form > button {
+    width: 50%;
+  }
+
+  body {
+    padding: 1rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  html > body > main > section.today-weather {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr 4fr;
+    gap: 3rem;
+    height: auto;
+  }
+}
+
+@media (max-width: 630px) {
+  html > body > main > .today-weather > ul {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  html > body > main > section.today-weather {
+    grid-template-rows: 5fr 9fr;
+    min-height: 1300px;
+  }
+
+  html > body > main > section.today-weather > .weather-info {
+    padding: 6rem 4rem;
+    border-radius: 6rem;
+  }
+
+  html > body > main > .today-weather > .weather-info > .temperature {
+    font-size: 17rem;
+  }
+  html > body > main > .today-weather > .weather-info > .location > p {
+    font-size: 2.5rem;
+  }
+  html > body > main > .today-weather > ul > li.cloud {
+    order: 1;
+  }
+  html > body > main > .today-weather > ul > li {
+    order: 2;
+  }
+  html > body > main > .today-weather > ul > a {
+    order: 3;
+    grid-column: span 2;
+  }
+
+  html > body > main > .today-weather > .weather-info > .date {
+    margin-bottom: 2rem;
+  }
+
+  .big {
+    font-size: 4rem;
+  }
+}
