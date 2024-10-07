@@ -11,6 +11,7 @@ export interface WeatherData {
   feelslike: number;
   windspeed: number;
   humidity: number;
+  visibility: number;
   cloudiness: number;
   address: string;
   icon: string;
@@ -44,6 +45,7 @@ async function getWeatherData(city: string) : Promise<WeatherData>{
       feelslike: data.currentConditions.feelslike,
       windspeed: data.currentConditions.windspeed,
       humidity: data.days[0].humidity,
+      visibility: data.currentConditions.visibility,
       message: data.days[0].conditions,
       cloudiness: data.days[0].cloudcover,
       address: data.resolvedAddress,

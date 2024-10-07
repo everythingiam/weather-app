@@ -1,4 +1,3 @@
-
 let KEY: string = '';
 
 async function setKeyFromTxt(filePath: string): Promise<void> {
@@ -20,39 +19,33 @@ function formatTime(time: string): string {
 }
 
 function formatAddress(address: string): string {
-  const parts = address.split(","); 
+  const parts = address.split(',');
   if (parts.length >= 2) {
-    const city = parts[0].trim();        
-    const country = parts[parts.length - 1].trim(); 
+    const city = parts[0].trim();
+    const country = parts[parts.length - 1].trim();
     return `${city}, <br>${country}`;
   }
-  return address; 
+  return address;
 }
 
-function formatRound(percent : number | string):string {
+function formatRound(percent: number | string): string {
   return Math.round(Number(percent)).toString();
 }
 
 function fahrenheitToCelsius(fahrenheit: number): string {
-  const result = (fahrenheit - 32) * 5 / 9;
-  return Math.round(Number(result)).toString();
-}
-
-function celsiusToFahrenheit(celsius: number): string {
-  const result = (celsius * 9 / 5) + 32;
-  return Math.round(Number(result)).toString();
+  const result = ((fahrenheit - 32) * 5) / 9;
+  return Math.round(result).toString();
 }
 
 function metersPerSecondToMilesPerHour(metersPerSecond: number): string {
   const mph = metersPerSecond * 2.23694;
   const result = Math.round(mph * 10) / 10;
-  return Math.round(Number(result)).toString();  
+  return Math.round(result).toString();
 }
 
-function milesPerHourToMetersPerSecond(mph: number): string {
-  const metersPerSecond = mph / 2.23694;
-  const result = Math.round(metersPerSecond * 10) / 10;
-  return result.toString(); 
+function kmToMiles(km: number): string {
+  const result = km / 1.609;
+  return Math.round(result).toString();
 }
 
 function getCurrentTimeFormatted(): string {
@@ -77,9 +70,8 @@ export default {
   formatTime,
   formatAddress,
   fahrenheitToCelsius,
-  celsiusToFahrenheit,
   formatRound,
   metersPerSecondToMilesPerHour,
-  milesPerHourToMetersPerSecond,
-  getCurrentTimeFormatted
+  getCurrentTimeFormatted,
+  kmToMiles,
 };
