@@ -17,9 +17,11 @@ async function init() {
 		const allData = await api.getAllDataFromCity(city);
 		const data = await api.getWeatherData(city);
 		console.log('все данные по городу:', allData);
+		dom.hideErrorMessage();
 		dom.init(data);
 	} catch (error) {
 		console.error('Ошибка в процессе:', error);
+		dom.displayErrorMessage('City not found. <br> Please try again.');
 	}
 }
 

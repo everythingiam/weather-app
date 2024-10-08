@@ -6,7 +6,7 @@
   "scripts": {
     "watch": "webpack --watch",
     "build": "webpack",
-    "deploy": "gh-pages -d dist"
+    "deploy": "gh-pages -d public"
   },
   "keywords": [],
   "author": "Alina",

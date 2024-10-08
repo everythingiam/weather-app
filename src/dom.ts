@@ -153,9 +153,22 @@ function hideElements() {
   });
 }
 
+const errorMessage = document.querySelector('.error')!; // Элемент для отображения ошибки
+
+function displayErrorMessage(message: string): void {
+	errorMessage.innerHTML = message;
+	errorMessage.classList.remove('hidden');
+}
+
+function hideErrorMessage(): void {
+	errorMessage.classList.add('hidden');
+}
+
 export default {
   setDataOnDom,
   setCelsius,
   init,
   hideElements,
+  displayErrorMessage,
+  hideErrorMessage
 };

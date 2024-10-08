@@ -22,15 +22,16 @@
           type="text"
           placeholder="City, Country"
           aria-label="Search city"
+          required
         />
         <button type="submit">Search</button>
         <!-- <button type="submit"></button> -->
       </form>
     </header>
-
     <main>
       <section class="today-weather">
         <div class="weather-info">
+          <div class="error hidden"></div>
           <p class="date hidden">-</p>
           <p class="temperature"><span class="hidden">−</span></p>
           <div class="temperature-range hidden">
@@ -55,7 +56,7 @@
               </div>
             </div>
             <div class="svg-cont">
-              <img src="./assets/icons/cloudy.svg" alt="" class="hidden">
+              <img src="./assets/icons/cloudy.svg" alt="" class="hidden" />
             </div>
           </li>
           <li>
