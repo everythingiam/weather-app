@@ -24,9 +24,12 @@
   --shadow-us-hover: 5px 5px 25px rgba(0, 0, 0, 0.25);
   --gradient: linear-gradient(110deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
 }
-p, a, span {
+p,
+a,
+span {
   transition: 200ms;
 }
+
 button {
   background: none;
   border: none;
@@ -34,8 +37,9 @@ button {
 }
 
 .hidden {
-	opacity: 0 !important;
-	transition: opacity 0.4s ease-out !important; 
+  opacity: 0 !important;
+  transition: opacity 0.4s ease-out !important;
+  pointer-events: none;
 }
 
 button,
@@ -83,6 +87,18 @@ html {
 
 ul {
   list-style-type: none;
+}
+
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 35rem;
+  border-radius: 2.7rem;
+  z-index: 15;
+  font-size: 4rem;
+  transition: opacity 0.4s ease-out;
 }
 
 body {
@@ -434,6 +450,11 @@ html
     grid-template-rows: 3fr 4fr;
     gap: 3rem;
     height: auto;
+  }
+
+  .error {
+    font-size: 3rem;
+    min-width: 10rem;
   }
 }
 
