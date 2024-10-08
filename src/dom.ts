@@ -156,12 +156,16 @@ function hideElements() {
 const errorMessage = document.querySelector('.error')!; // Элемент для отображения ошибки
 
 function displayErrorMessage(message: string): void {
-	errorMessage.innerHTML = message;
-	errorMessage.classList.remove('hidden');
+  errorMessage.innerHTML = message;
+  errorMessage.classList.remove('hidden');
+  fahrenheitTab.style.pointerEvents = 'none';
+  celsiusTab.style.pointerEvents = 'none';
 }
 
 function hideErrorMessage(): void {
-	errorMessage.classList.add('hidden');
+  errorMessage.classList.add('hidden');
+  fahrenheitTab.style.pointerEvents = 'all';
+  celsiusTab.style.pointerEvents = 'all';
 }
 
 export default {
@@ -170,5 +174,5 @@ export default {
   init,
   hideElements,
   displayErrorMessage,
-  hideErrorMessage
+  hideErrorMessage,
 };
